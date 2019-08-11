@@ -1,4 +1,4 @@
-FROM node:8.4-alpine
+FROM f8app_base:latest
 
 RUN ["npm", "install", "-g", "parse-server"]
 

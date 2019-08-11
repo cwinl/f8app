@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "server": "docker-compose up",
+    "server": "docker-compose up -d",
     "android": "./scripts/run-android-app.sh",
     "ios": "babel-node ./scripts/open-ios-project.js",
     "test": "jest --verbose",
