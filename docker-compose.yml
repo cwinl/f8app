@@ -1,5 +1,7 @@
 version: "3"
 services:
+  base:
+    build: ./server/f8app_base
   mongo:
     image: mongo
     networks:
@@ -15,14 +17,19 @@ services:
     ports:
       - "1337:1337"
     depends_on:
+      - base
       - mongo
   parse_dashboard:
     build: ./server/parse-dashboard
     ports:
       - "4040:4040"
+    depends_on:
+      - base
   graphql:
     build: ./server/graphql
     environment:
       - PARSE_URL=http://parse:1337/parse
     ports:
       - "4000:4000"
+    depends_on:
+      - base
